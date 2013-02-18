@@ -11,7 +11,7 @@ while($setting = mysql_fetch_assoc($settings))
 <div class='title'>Settings</div>
 <div id='body'>
 <div id='settings'>
-<form name='settings' action='setsettings.php' method='post'>
+<form name='settings' action='set_settings.php' method='post'>
 <table>
 <tr>
 <td><b>Load Threshold</b><br/>Minimim server load required to trigger an alert.</td>
