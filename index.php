@@ -15,7 +15,7 @@ if(!isset($_GET['p']))
 <div id='header'>
 <div id='headwrap'>
 	<div id='logo'>
-		Monitor
+		jMon | A Simple Server Monitor
 	</div>
 
 	<div id='nav'>
