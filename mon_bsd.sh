@@ -29,8 +29,8 @@ USERS=`uptime | grep -ohe '[0-9.*] user[s,]' | awk '{ print $1 }'`
 UPTIME=$((`date +%s`-`sysctl kern.boottime | awk '{print $5}' | sed 's/,//'`))
 RAM_FREE=`dmesg | grep 'avail memory' | awk '{print $5}' | sed 's/(//'`
 RAM_TOTAL=`dmesg | grep 'real memory' | awk '{print $5}' | sed 's/(//'`
-RX_BYTES=`netstat -I em0 -b | awk '{ if (/Link/) { print $8 } }'`
-TX_BYTES=` netstat -I em0 -b | awk '{ if (/Link/) { print $11 } }'`
+RX_BYTES=`netstat -I $iface -b | awk '{ if (/Link/) { print $8 } }'`
+TX_BYTES=` netstat -I $iface -b | awk '{ if (/Link/) { print $11 } }'`
 UPDATES_AVAIL="NA"
 
 #Create temporary XML file to write data to
