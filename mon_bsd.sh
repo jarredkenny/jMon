@@ -18,6 +18,7 @@ monitor="http://monitor.jr0d.com/listen.php"
 #######################################
 
 #Gather system information
+OS=`uname -s`
 HOSTNAME=`hostname -f`
 LOAD=`uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3 }'`
 DISK_TOTAL=`df -hc | grep total | awk '{print $2}'`
@@ -38,6 +39,7 @@ XML_FILE=$$.xml
 #Output values in fancy XML
 echo -n "<Monitor>" >> $XML_FILE
 echo -n "<Access_Key>$accesskey</Access_Key>" >> $XML_FILE
+echo -n "<OS>$OS</OS>" >> $XML_FILE
 echo -n "<Hostname>$HOSTNAME</Hostname>" >> $XML_FILE
 echo -n "<Load>$LOAD</Load>" >> $XML_FILE
 echo -n "<Disk_Total>$DISK_TOTAL</Disk_Total>" >> $XML_FILE

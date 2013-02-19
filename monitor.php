@@ -10,7 +10,7 @@ while ($server = mysql_fetch_assoc($servers))
 	$xml = new SimpleXMLElement($server['xml_data']);
 
 	//Start table
-	echo "<div class='title'>".$server['hostname']."</div>";
+	echo "<div class='title'>".$server['hostname']."<div class='os'>".$xml->OS."</div></div>";
 	echo "<table><tr><th>Uptime</th><th>Last Update</th><th>Services</th><th>Load</th><th>Updates</th><th>HDD</th><th>RAM</th><th>Traffic</th></tr>";
 
 	//Uptime

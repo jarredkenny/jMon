@@ -48,6 +48,10 @@ body {
 	margin-left: 0px;
 	}
 
+#logo a {
+	color: white;
+	}
+
 #nav {
 	margin-top: 12px;
 	margin-right: 5px;
@@ -157,3 +161,7 @@ body {
 	}
 
 
+.os {
+	float: right;
+	padding-right: 15px;
+	}
