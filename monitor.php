@@ -11,13 +11,33 @@ while ($server = mysql_fetch_assoc($servers))
 
 	//Start table
 	echo "<div class='title'>".$server['hostname']."</div>";
-	echo "<table><tr><th>Uptime</th><th>Last Checked</th><th>Services</th><th>Load</th><th>Updates</th><th>HDD</th><th>RAM</th><th>Traffic</th></tr>";
+	echo "<table><tr><th>Uptime</th><th>Last Update</th><th>Services</th><th>Load</th><th>Updates</th><th>HDD</th><th>RAM</th><th>Traffic</th></tr>";
 
 	//Uptime
 	echo "<tr><td>".$xml->Uptime."</td>";
 
 	//Time of last check
-	echo "<td>".$server['check_time']."</td>";
+	echo "<td>";
+	$time_since = time() - $server['check_time'];
+
+	switch($time_since){
+	case($time_since < 60):
+	if($time_since == 1){echo $time_since." second ago";}
+	else{echo $time_since." seconds ago";}
+	break;
+
+	case($time_since > 60 && $time_since < 3600):
+	if(floor($time_since/60) == 1){echo floor($time_since/60)." minute ago";}
+	else{echo floor($time_since/60)." minutes ago";}
+	break;
+
+	case($time_since > 3600):
+	if(floor($time_since/3600) == 1){echo floor($time_since/3600)." hour ago";}
+	else{echo floor($time_since/3600)." minutes ago";}
+	break;
+	}
+	echo "</td>";
+
 
 	//Services
 	echo "<td>";
