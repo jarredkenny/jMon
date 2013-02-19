@@ -54,7 +54,7 @@ while ($server = mysql_fetch_assoc($servers))
 
 	case($time_since > 3600):
 	if(floor($time_since/3600) == 1){echo floor($time_since/3600)." hour ago";}
-	else{echo floor($time_since/3600)." minutes ago";}
+	else{echo floor($time_since/3600)." hours ago";}
 	break;
 	}
 	echo "</td>";
