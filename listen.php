@@ -12,7 +12,8 @@ if(isset($_POST['XML_DATA']))
 	$accesskey = $xml->Access_Key;
 
 	//Get current time to store with data
-	$time = date("G:i:s");
+	//$time = date("G:i:s");
+	$time = time();
 
 	//Pull in Database info, and connect to database
 	require('config.php');
