@@ -14,7 +14,28 @@ while ($server = mysql_fetch_assoc($servers))
 	echo "<table><tr><th>Uptime</th><th>Last Update</th><th>Services</th><th>Load</th><th>Updates</th><th>HDD</th><th>RAM</th><th>Traffic</th></tr>";
 
 	//Uptime
-	echo "<tr><td>".$xml->Uptime."</td>";
+	echo "<tr><td>";
+	$uptime = $xml->Uptime;
+	switch($uptime){
+	case($uptime < 60):
+	if(floor($uptime) == 1){echo floor($uptime)." second";}
+	else{echo floor($uptime). " seconds";}
+	break;
+
+	case($uptime > 60 && $uptime < 3600):
+	if(floor($uptime/60) == 1){echo floor($uptime/60)." minute";}
+	else{echo floor($uptime/60). "minutes";}
+	break;
+
+	case($uptime > 3600 && $uptime < 86400):
+	if(floor($uptime/3600) == 1){echo floor($uptime/3600). "hour";}
+	else{echo floor($uptime/3600). "hours";}
+	break;
+
+	case($uptime > 86400):
+	if(floor($uptime/86400) == 1){echo floor($uptime/86400)." day";}
+	else{echo floor($uptime/86400)." days";}
+	}
 
 	//Time of last check
 	echo "<td>";
