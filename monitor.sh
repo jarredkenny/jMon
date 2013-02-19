@@ -13,7 +13,7 @@ iface="eth0"
 services=(sshd apache2 named postfix)
 
 #URL to Monitor's listen.php
-monitor="http://yourmonitor.com/listen.php"
+monitor="http://monitor.jr0d.com/listen.php"
 
 ######################################
 
@@ -25,7 +25,7 @@ DISK_USED=`df -h --total | grep total | awk '{print $3}'`
 DISK_FREE=`df -h --total | grep total | awk '{print $4}'`
 DISK_PERCENT_USED=`df -h --total | grep total | awk '{print $5}'`
 USERS=`uptime | grep -ohe '[0-9.*] user[s,]' | awk '{ print $1 }'`
-UPTIME=`uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2}'`
+UPTIME=`cat /proc/uptime | awk '{print $1}'`
 RAM_FREE=`free -m | grep -v shared | awk '/buffers/ {printf $4 }'`
 RAM_TOTAL=`free -m | grep -v shared | awk '/Mem/ {printf $2 }'`
 RX_BYTES=`/sbin/ifconfig $iface | awk '{ gsub(/\:/," ") } ; { print  } ' | awk '/RX\ b/ { print $3 }'`
