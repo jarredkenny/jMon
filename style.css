@@ -117,6 +117,10 @@ body {
 	padding: 10px;
 	}
 
+#monitor table tr td meter {
+	width: 100%;
+	}
+
 #monitor table tr th {
 	background: #424242;
 	color: #fff;

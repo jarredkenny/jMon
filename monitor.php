@@ -82,6 +82,8 @@ while ($server = mysql_fetch_assoc($servers))
 
 	//HDD
 	echo "<td>";
+	$percent = str_replace("%", "", $xml->Disk_Percent_Used);
+	echo "<meter min='0' max='100' value='".$percent."'></meter></br>";
 	echo "Free: ".$xml->Disk_Free;
 	echo "</br>";
 	echo "Used: ".$xml->Disk_Used." (".$xml->Disk_Percent_Used.")";
