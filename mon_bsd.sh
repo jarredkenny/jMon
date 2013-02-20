@@ -20,7 +20,7 @@ monitor="http://monitor.jr0d.com/listen.php"
 #Gather system information
 OS=`uname -s`
 HOSTNAME=`hostname -f`
-LOAD=`uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3 }'`
+LOAD=`uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3 }' | sed 's/,//'`
 DISK_TOTAL=`df -hc | grep total | awk '{print $2}'`
 DISK_USED=`df -hc | grep total | awk '{print $3}'`
 DISK_FREE=`df -hc | grep total | awk '{print $4}'`
