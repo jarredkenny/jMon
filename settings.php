@@ -7,8 +7,19 @@ while($setting = mysql_fetch_assoc($settings))
 {
 	$values[$setting['setting']] = $setting['value'];
 }
+
+if(isset($_GET['set']))
+{
+	if($_GET['set'] == 1)
+	{
+		echo "<div class='title'>Settings have been saved</div>";
+	}
+}
 ?>
-<div class='title'>Settings</div>
+<div class='title'>Add New Server</div>
+<div id='body'>
+This is just a test and shit</div>
+<div class='title'>Global Settings</div>
 <div id='body'>
 <div id='settings'>
 <form name='settings' action='set_settings.php' method='post'>

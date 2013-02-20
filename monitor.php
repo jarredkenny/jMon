@@ -117,9 +117,9 @@ while ($server = mysql_fetch_assoc($servers))
 
 	//Traffic
 	echo "<td>";
-	echo "RX: ".$xml->Rx_Bytes;
-	echo "</br>";
-	echo "TX: ".$xml->Tx_Bytes;
+	echo "<img src='img/traffic_down.png' alt='Traffic Down' width='15px' height='15px'> ".floor($xml->Rx_Bytes / 1048576)." MB";
+	echo "</br></br>";
+	echo "<img src='img/traffic_up.png' alt='Traffic Up' width='15px' height='15px'> ".floor($xml->Tx_Bytes / 1048576). " MB";
 	echo "</td>";
 
 //	echo htmlentities($server['xml_data']);
