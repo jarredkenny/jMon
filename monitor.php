@@ -3,6 +3,15 @@
 require('config.php');
 mysql_connect("$dbhost", "$dbuser", "$dbpass")or die("<h2>Could not connect to database!</h2>");
 mysql_select_db("$dbname");
+
+//Build settings array
+$_settings = mysql_query("SELECT * FROM settings");
+while($setting = mysql_fetch_assoc($_settings))
+{
+        $settings[$setting['setting']] = $setting['value'];
+}
+
+//Build Monitor table
 $servers = mysql_query("SELECT * FROM servers");
 while ($server = mysql_fetch_assoc($servers)) 
 {
@@ -74,16 +83,20 @@ while ($server = mysql_fetch_assoc($servers))
 	echo "</td>";
 
 	//Load
-	echo "<td>".$xml->Load."</td>";
-
+	if($xml->Load
+ < 2.00)
+	{
+		echo "<td>".$xml->Load."</td>";
+	}else{
+		echo "<td><div class='red'>".$xml->Load."</div></td>";
+	}
 
 	//Updates
 	echo "<td>".$xml->Updates_Avail."</td>";
 
 	//HDD
 	echo "<td>";
-	$percent = str_replace("%", "", $xml->Disk_Percent_Used);
-	echo "<meter min='0' max='100' value='".$percent."'></meter></br>";
+	echo "<meter min='0' max='100' high='".$settings['disk_usage_threshold']."' value='".str_replace("%", "", $xml->Disk_Percent_Used)."'></meter></br></br>";
 	echo "Free: ".$xml->Disk_Free;
 	echo "</br>";
 	echo "Used: ".$xml->Disk_Used." (".$xml->Disk_Percent_Used.")";
@@ -93,7 +106,11 @@ while ($server = mysql_fetch_assoc($servers))
 
 	//RAM
 	echo "<td>";
+	$Ram_Used = $xml->Ram_Total - $xml->Ram_Free;
+	echo "<meter min='0' max='".$xml->Ram_Total."' value='".$Ram_Used."'></meter></br></br>";
 	echo "Free: ".$xml->Ram_Free;
+	echo "</br>";
+	echo "Used: ".$Ram_Used;
 	echo "</br>";
 	echo "Total: ".$xml->Ram_Total;
 	echo "</td>";

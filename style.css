@@ -119,6 +119,8 @@ body {
 
 #monitor table tr td meter {
 	width: 100%;
+	color: #424242;
+	background: #234242;
 	}
 
 #monitor table tr th {
@@ -168,4 +170,12 @@ body {
 .os {
 	float: right;
 	padding-right: 15px;
+	}
+
+.green {
+	color: green;
+	}
+
+.red	{
+	color: red;
 	}
