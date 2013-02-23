@@ -8,20 +8,19 @@ if(!isset($_GET['p']))
 }
 ?>
 <link rel='stylesheet' type='text/css' href='style.css'>
-<title>Server Monitor</title>
+<title>jMon | A Simple Server Monitor</title>
 </head>
 
 <body>
 <div id='header'>
 <div id='headwrap'>
 	<div id='logo'>
-		jMon | A Simple Server Monitor
+		<a href='/'>jMon | A Simple Server Monitor</a>
 	</div>
 
 	<div id='nav'>
 		<ul>
 			<a href='/'><li>Monitor</li></a>
-			<a href='?p=logs'><li>Logs</li></a>
 			<a href='?p=settings'><li>Settings</li></a>
 		</ul>
 	</div>
