@@ -17,11 +17,35 @@ if(isset($_GET['set']))
 }
 ?>
 <div class='title'>Add New Server</div>
+<div id='settings'>
 <div id='body'>
-This is just a test and shit</div>
+<table>
+<tr>
+<form name='add_server' method='POST' action='index.php?p=gen_mon_script'>
+<td><b>Server Name</b><br/>Does not actually effect monitoring but is used to name script.</td>
+<td><input type='text' name='server_name'></td>
+</tr><tr>
+<td><b>OS Type</b><br/>Specify the type of operating system to be monitored.</td>
+<td><select name='os_type'>
+	<option value='linux'>Linux</option>
+	<option value='bsd'>BSD</option>
+	</select>
+</td>
+</tr><tr>
+<td><b>Services</b><br/>Specify the name of processes to be monitored on the server.<br/> Multiple processes should be seperated using spaced. Ex. "postfix sshd httpd"</td>
+<td><input type='text' name='services'></td>
+</tr><tr>
+<td><b>Network Interaface</b><br/>Specify the name of the servers primary network interface.<br/>This is used for bandwidth calculations.</td>
+<td><input type='text' name='interface_name'></td>
+</tr><tr>
+<td></td>
+<td><input type='submit' name='submit' value='Generate Script'></td>
+</tr>
+</form>
+</table>
+</div>
 <div class='title'>Global Settings</div>
 <div id='body'>
-<div id='settings'>
 <form name='settings' action='set_settings.php' method='post'>
 <table>
 <tr>
