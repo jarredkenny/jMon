@@ -12,5 +12,5 @@ foreach($_POST as $setting=>$value)
 }
 
 //Return to settings page
-header("location: /?p=settings");
+header("location: /?p=settings&set=1");
 ?>

@@ -1,7 +1,7 @@
 <?php
 // Database Connection information
-$dbhost = "";
-$dbname = "";
-$dbuser = "";
-$dbpass = "";
+$dbhost = "localhost";
+$dbname = "monitor";
+$dbuser = "monitor";
+$dbpass = "mwahaha12345";
 ?>

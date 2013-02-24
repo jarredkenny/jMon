@@ -27,7 +27,8 @@ if(isset($_GET['set']))
 </tr><tr>
 <td><b>OS Type</b><br/>Specify the type of operating system to be monitored.</td>
 <td><select name='os_type'>
-	<option value='linux'>Linux</option>
+	<option value='linux_debian'>Linux/Debian</option>
+	<option value='linux_arch'>Linux/Arch</option>
 	<option value='bsd'>BSD</option>
 	</select>
 </td>

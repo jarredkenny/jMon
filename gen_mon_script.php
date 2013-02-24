@@ -12,12 +12,12 @@ if(isset($_POST['os_type']) && isset($_POST['services']) && isset($_POST['interf
 	$script = str_replace("{{{services}}}", $services, $script);
 	$script = str_replace("{{{listen_url}}}", $listen_url, $script);
 
-	file_put_contents("scripts/".$server_name."_mon.sh", $script);
+	file_put_contents("scripts/generated/".$server_name."_mon.sh", $script);
 ?>
 <div class='title'>Download Script</div>
 <div id='body'>
 A monitoring script has been generated for <?php echo $server_name; ?> and can be downloading using the following:<br/><br/>
-<code>wget <?php echo "http://".$_SERVER['HTTP_HOST']."/scripts/".$server_name."_mon.sh"; ?></code>
+<code>wget <?php echo "http://".$_SERVER['HTTP_HOST']."/scripts/generated/".$server_name."_mon.sh"; ?></code>
 <br/><br/>
 You should set up a cron job to run the script as often as youw want the server updated in the monitor. If you are not familier with how to do so a guide can be found here:
 <br/><br/>

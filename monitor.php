@@ -13,6 +13,11 @@ while($setting = mysql_fetch_assoc($_settings))
 
 //Build Monitor table
 $servers = mysql_query("SELECT * FROM servers");
+if(mysql_num_rows($servers) == 0)
+{
+	echo "<div class='title'>Oops!</div><div id='body'>It looks like nothing has been reported to the monitor yet. To add a server go to the settings page and see the 'Add Server' section.</div>";
+}
+else{
 while ($server = mysql_fetch_assoc($servers)) 
 {
 	//Create parsable XML element 
@@ -124,6 +129,7 @@ while ($server = mysql_fetch_assoc($servers))
 
 //	echo htmlentities($server['xml_data']);
 	echo "</table>";
+}
 }
 mysql_close();
 ?>
