@@ -3,5 +3,5 @@
 $dbhost = "localhost";
 $dbname = "monitor";
 $dbuser = "monitor";
-$dbpass = "mwahaha12345";
+$dbpass = "";
 ?>

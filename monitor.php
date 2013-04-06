@@ -18,9 +18,9 @@ if(mysql_num_rows($servers) == 0)
 	echo "<div class='title'>Oops!</div><div id='body'>It looks like nothing has been reported to the monitor yet. To add a server go to the settings page and see the 'Add Server' section.</div>";
 }
 else{
-while ($server = mysql_fetch_assoc($servers)) 
+while ($server = mysql_fetch_assoc($servers))
 {
-	//Create parsable XML element 
+	//Create parsable XML element
 	$xml = new SimpleXMLElement($server['xml_data']);
 
 	//Start table
@@ -43,7 +43,7 @@ while ($server = mysql_fetch_assoc($servers))
 
 	case($uptime > 3600 && $uptime < 86400):
 	if(floor($uptime/3600) == 1){echo floor($uptime/3600). "hour";}
-	else{echo floor($uptime/3600). "hours";}
+	else{echo floor($uptime/3600). " hours";}
 	break;
 
 	case($uptime > 86400):
@@ -52,8 +52,13 @@ while ($server = mysql_fetch_assoc($servers))
 	}
 
 	//Time of last check
-	echo "<td>";
 	$time_since = time() - $server['check_time'];
+	$threshold_seconds = $settings['data_threshold'] * 60;
+	if ($time_since > $threshold_seconds){
+		echo "<td class='down'>";
+	}else{
+		echo "<td>";
+	}
 
 	switch($time_since){
 	case($time_since < 60):
@@ -88,8 +93,7 @@ while ($server = mysql_fetch_assoc($servers))
 	echo "</td>";
 
 	//Load
-	if($xml->Load
- < 2.00)
+	if($xml->Load < $settings['load_threshold'])
 	{
 		echo "<td>".$xml->Load."</td>";
 	}else{

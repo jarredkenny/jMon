@@ -12,6 +12,7 @@ a:focus               {outline-style: none;}
 body {
 	background: url(http://i.imgur.com/6DW2xiv.png);
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 14px;
 	margin: 0;
 	margin-top: 70px;
 	padding: 0;
@@ -151,7 +152,7 @@ body {
 	}
 
 .down {
-	color: red;
+	color: red!important;
 	text-align: right;
 	float: right;	
 	}

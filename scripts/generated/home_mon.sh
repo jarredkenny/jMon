@@ -13,7 +13,7 @@
 iface="eth0"
 
 #Services that should be monitored (space seperated)
-services=(apache2 named sshd downservice anotherone)
+services=(apache2 named sshd bind)
 
 #URL to Monitor's listen.php
 monitor="http://monitor.jr0d.com/listen.php"
@@ -23,13 +23,11 @@ monitor="http://monitor.jr0d.com/listen.php"
 #Gather system information
 OS=`uname -s`
 HOSTNAME=`hostname -f`
-LOAD="3.0"
-#LOAD=`uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3 }' | sed 's/,//'`
+LOAD=`uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3 }' | sed 's/,//'`
 DISK_TOTAL=`df -h --total | grep total | awk '{print $2}'`
 DISK_USED=`df -h --total | grep total | awk '{print $3}'`
 DISK_FREE=`df -h --total | grep total | awk '{print $4}'`
-#DISK_PERCENT_USED=`df -h --total | grep total | awk '{print $5}'`
-DISK_PERCENT_USED="100%"
+DISK_PERCENT_USED=`df -h --total | grep total | awk '{print $5}'`
 USERS=`uptime | grep -ohe '[0-9.*] user[s,]' | awk '{ print $1 }'`
 UPTIME=`cat /proc/uptime | awk '{print $1}'`
 RAM_FREE=`free -m | grep -v shared | awk '/buffers/ {printf $4 }'`

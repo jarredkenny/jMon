@@ -40,6 +40,8 @@ if(isset($_GET['set']))
 <td><input type='text' name='interface_name'></td>
 </tr><tr>
 <td></td>
+
+
 <td><input type='submit' name='submit' value='Generate Script'></td>
 </tr>
 </form>
@@ -66,5 +68,10 @@ if(isset($_GET['set']))
 <td><input type='submit' value='Save Settings'></td>
 </table>
 </form>
+</div>
+
+<div class='title'>Mail Settings</div>
+<div id='body'>
+This is a test
 </div>
 </div>
